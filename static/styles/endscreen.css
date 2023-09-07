@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body,html{
+    height: 100%;
+    background: #272727;
+    font-family: "Montserrat", sans-serif !important; 
+    text-align: center;
+}
+
+h1{
+  color: #f6f4e6;
+  padding-bottom: 30%;
+} 
+
+.lbl{
+  color: #f6f4e6;
+  padding-bottom: 10px;
+}
+
+.material-icons{
+  color: #f6f4e6;
+}
+
+.gbtn{
+  font-family: "Montserrat", sans-serif;
+  background: #272727;
+  color: #f6f4e6;
+  border-color: #f6f4e6;
+  width: 20%;
+  height:  5%;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #f6f4e6;
+  padding: 5px;
+  filter: drop-shadow(3.5px 2px 0.25px #a9a89e);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("../background.png");
+
+  /* Add the blur effect */
+  filter: blur(0px);
+  -webkit-filter: blur(4px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: #f6f4e6;
+  font-weight: bold;
+  border: 3px solid #f6f4e6;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 30%;
+  height: 70%;
+  padding: 20px;
+}

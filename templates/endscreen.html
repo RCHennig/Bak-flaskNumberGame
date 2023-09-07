@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/endscreen.css') }}">  
+</head>
+<body>
+    <a href="/"><i class="material-icons">home</i></a>
+    <div class="bg-image"></div>
+    <div class="bg-text">
+      <h1>Game Over!</h1>
+      <form class="submitForm" method="POST">
+        <label class="lbl" for="guess">Enter your Name:</label>
+        <br>
+        <input class="inpt" type="text" name="playername" required>
+        <br>
+        <button class="gbtn" type="submit">Send Name</button>
+    </form>
+    </div> 
+</body>
+</html>

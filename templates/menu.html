@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/menu.css') }}">  
+</head>
+<body>
+    <nav class="navMenu">
+      <a href="{{ url_for('game') }}">Play</a>
+      <a href="{{ url_for('scores') }}">Score</a>
+      <a href="{{ url_for('options') }}">Options</a>
+      <div class="dot"></div>
+    </nav>
+</body>
+</html>

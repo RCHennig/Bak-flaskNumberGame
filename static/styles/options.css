@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+    background: #272727;
+    color: #f6f4e6;
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+}
+
+.material-icons{
+  margin-top: 5%; 
+  color: #f6f4e6;
+}
+
+h1{
+  margin-top: 2.5%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+form{
+  text-align: left;
+  left: 0;
+  line-height: 50px;
+  margin-top: 2%;
+  margin-left: 39%;
+  margin-right: 39%;
+  position: absolute;
+  top: 16%;
+  width: 22%;
+}
+
+.checkbox{
+  font-family: "Montserrat", sans-serif;
+  background: #272727;
+  color: #f6f4e6;
+  border-color: #f6f4e6;
+  border: 2px solid #f6f4e6;
+  float: right;
+  margin-top: 4%;
+}
+
+.obtn{
+  font-family: "Montserrat", sans-serif;
+  background: #272727;
+  color: #f6f4e6;
+  border-color: #f6f4e6;
+  width: 20%;
+  height:  5%;
+  border-radius: 5px;
+  border: 2px solid #f6f4e6;
+  padding: 5px;
+  float: right;
+  margin-top: 2.5%;
+}
+
+.sbtn{
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  background: #272727;
+  color: #f6f4e6;
+  border-color: #f6f4e6;
+  width: 33.33%;
+  height:  5.5%;
+  border-radius: 5px;
+  border: 2px solid #f6f4e6;
+  padding: 5px;
+  filter: drop-shadow(3.5px 2px 0.25px #a9a89e);
+  bottom: 10%;
+  margin-left: 33.33%;
+  margin-right: 33.33%;
+}
