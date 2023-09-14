@@ -38,6 +38,7 @@ def game():
 
     volume = session["audioVolume"] / 100
     mixer.music.set_volume(volume)
+    mixer.music.load(session["music"])
 
     if "guessScore" not in session:
         session["guessScore"]=0
@@ -73,6 +74,7 @@ def game():
 def scores():
     volume = session["audioVolume"] / 100
     mixer.music.set_volume(volume)
+    mixer.music.load(session["music"])
 
     sql = "SELECT player, score FROM scores ORDER BY score DESC"
     db_cursor.execute(sql)
@@ -107,13 +109,23 @@ def endscreen():
 
 @app.route("/options", methods=["GET","POST"])
 def options():
+    mixer.music.load(session["music"])
     if request.method=="POST":
         #print('test')
         session["audioVolume"] = int(request.form.get("audioVolume"))
         volume = session["audioVolume"] / 100
-
         mixer.music.set_volume(volume)
-        #print(session["audioVolume"])
+
+        session["Meme"] = request.form.get("memeOption")
+        print(session["Meme"])
+        print(session["music"])
+
+        if session["Meme"] == "coffinD":
+            session["music"] = './music/coffinDance.mp3'
+        if session ["Meme"] == "none":
+            session["music"] = './music/backgroundMusic.mp3'
+
+        #print(session["Meme"])
         #print(volume)
     
     return render_template("options.html", audioVolume=session["audioVolume"])
