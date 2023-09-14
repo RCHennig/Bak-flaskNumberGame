@@ -81,11 +81,13 @@ def scores():
 def menu():
     if "audioVolume" not in session:
         session["audioVolume"] = 0.5
+    if "music" not in session:
+        session["music"] = './music/backgroundMusic.mp3'
 
     mixer.init()
     volume = session["audioVolume"] / 100
     mixer.music.set_volume(volume)
-    mixer.music.load('./music/backgroundMusic.mp3')
+    mixer.music.load(session["music"])
     mixer.music.play(999)
     return render_template("menu.html")
 
