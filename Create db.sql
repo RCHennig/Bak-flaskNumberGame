@@ -6,3 +6,9 @@ create table scores(
     player char(15),
     score int8 not null
 );
+
+insert into scores(player,scores)
+VALUES ('Ecdion187', 420)
+
+insert into scores(player, scores)
+VALUES ('Taxary69', 420)

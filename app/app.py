@@ -6,7 +6,6 @@ import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
-#TIME_LIMIT = 10
 
 # Set up the MySQL connection
 db_connection = mysql.connector.connect(

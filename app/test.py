@@ -29,22 +29,19 @@ class TestMySQLConnection(unittest.TestCase):
             print(f"Error: {err}")
             self.fail("MySQL connection failed")
 
-class TestGameFunctions(unittest.TestCase):
-
     def setUp(self):
         self.app = Flask(__name__)
         self.app.secret_key = "your_secret_key"
 
     def test_start_new_game(self):
-        with self.app.test_request_context('/'):
+        with self.app.test_request_context('/play'):
             with self.app.test_client() as client:
                 with client.session_transaction() as session:
                     start_new_game()
                     self.assertEqual(session['score'], 0)
                     self.assertEqual(session['guessScore'], 0)
-
     def test_start_new_round(self):
-        with self.app.test_request_context('/'):
+        with self.app.test_request_context('/play'):
             with self.app.test_client() as client:
                 with client.session_transaction() as session:
                     start_new_round()
@@ -52,7 +49,7 @@ class TestGameFunctions(unittest.TestCase):
                     self.assertIsInstance(session['target_number'], int)
 
     def test_save_score(self):
-        with self.app.test_request_context('/'):
+        with self.app.test_request_context('/endscreen'):
             with self.app.test_client() as client:
                 with client.session_transaction() as session:
                     player_name = "TestPlayer"
