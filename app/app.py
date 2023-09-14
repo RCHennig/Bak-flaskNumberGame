@@ -3,6 +3,7 @@ from pygame import mixer
 import random
 import time
 import mysql.connector
+import db_conn 
 
 app = Flask(__name__)
 app.secret_key = "your_secret_key"
@@ -10,10 +11,10 @@ app.secret_key = "your_secret_key"
 
 # Set up the MySQL connection
 db_connection = mysql.connector.connect(
-    host="127.0.0.1",
-    user="root",
-    password="",
-    database="PlayerData"
+    host= db_conn.host,
+    user= db_conn.user,
+    password= db_conn.password,
+    database= db_conn.database
 )
 db_cursor = db_connection.cursor()
 
@@ -23,6 +24,7 @@ def start_new_round():
 def start_new_game():
     session["score"]= 0
     session["guessScore"]=0
+    session["message"]= "Guess a Number!"
     start_new_round()
 
 def save_score(player, score):
@@ -43,7 +45,7 @@ def game():
     if "score" not in session:
         session["score"] = 0
     if "target_number" not in session:
-        session["message"]= "Runde Vorbei"
+        session["message"]= "Game Over"
         #start_new_round()
 
     if request.method == "POST":
@@ -54,7 +56,7 @@ def game():
             player_name = "Player"  # You can customize this to take player's name as input
             session["score"] += 10
             session["guessScore"] += 1
-            if session["guessScore"]>0: #Anzahl der zu erratenden Zahlen pro Runde
+            if session["guessScore"]>2: #Anzahl der zu erratenden Zahlen pro Runde
                 return redirect("/endscreen", code=302)
 
             else:
@@ -98,7 +100,8 @@ def endscreen():
     if request.method=="POST":
         playerName =(request.form["playername"])
         save_score(playerName,session["score"])
-
+        start_new_game()
+        return redirect("/scores", code=302)
     return render_template("endscreen.html")
 
 @app.route("/options", methods=["GET","POST"])
@@ -107,6 +110,7 @@ def options():
         #print('test')
         session["audioVolume"] = int(request.form.get("audioVolume"))
         volume = session["audioVolume"] / 100
+
         mixer.music.set_volume(volume)
         #print(session["audioVolume"])
         #print(volume)
